@@ -2,7 +2,7 @@
 Useeffect for forms: runs when any changes occured. to avoid dataleaks use return for clearing data.
 
 
-In login page:
+In LOGIN PAGE:
 
 const Login = (props) => {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -24,3 +24,13 @@ return ()=>{    // return statement used for cleaning all previous onkey up data
   clearTimeout(identifier);
 }
 },[enteredEmail, enteredPassword]);
+
+
+In APP.JS
+
+useEffect(()=>{
+  const storedLocalStorage=localStorage.getItem('isLoggedIn');
+  if(storedLocalStorage==="1"){
+    setIsLoggedIn(true);
+  }
+},[]);
