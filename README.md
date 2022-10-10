@@ -27,6 +27,8 @@ return ()=>{    // return statement used for cleaning all previous onkey up data
 
 
 In APP.JS
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 useEffect(()=>{
   const storedLocalStorage=localStorage.getItem('isLoggedIn');
@@ -34,3 +36,14 @@ useEffect(()=>{
     setIsLoggedIn(true);
   }
 },[]);
+  const loginHandler = (email, password) => {
+    // We should of course check email and password
+    // But it's just a dummy/ demo anyways
+    localStorage.setItem('isLoggedIn','1');
+    setIsLoggedIn(true);
+  };
+ 
+  const logoutHandler = () => {
+    localStorage.setItem('isLoggedIn','0');
+    setIsLoggedIn(false);
+  };
